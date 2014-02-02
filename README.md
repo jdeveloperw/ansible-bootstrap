@@ -35,6 +35,6 @@ This assumes you are setting up a Ubuntu 13.10 x64 to be managed by ansible.
 
         PasswordAuthentication yes
 
-- Controller: ssh to the controlle as ansible
+- Controller: ssh to the controllee as ansible
 
        ssh ansible@$MYSERVER -i ~/.ssh/ansible
