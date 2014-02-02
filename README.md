@@ -8,13 +8,13 @@ Minimal scripts and files needed to allow ansible to manage a server.
 <pre>
 ansible-bootstrap/
 ├── README.md
-    This file
+|   This file
 ├── RUNME.sh
-    Standalone script that can be downloaded and run to configure a server to be managed by ansible
+|   Standalone script that can be downloaded and run to configure a server to be managed by ansible
 ├── ansible-bootstrap.sh
-    Does most of the work of setting up the server to be managed by ansible.
+|   Does most of the work of setting up the server to be managed by ansible.
 ├── sshd_config
-    Copied to /etc/ssh/sshd_config by ansible-bootstrap.sh
+|   Copied to /etc/ssh/sshd_config by ansible-bootstrap.sh
 └── sudoers-ansible
     Copied to /etc/sudoers.d/ansible/ by ansible-bootstrap.sh
 </pre>
@@ -34,7 +34,7 @@ This assumes you are setting up a Ubuntu 13.10 x64 to be managed by ansible.
 - Controller: Create a public/private key pair and copy it from the controller to the controllee's `/root` directory
 
         ssh-keygen -f ~/.ssh/ansible
-        scp ~/.ssh/ansible.pub root@$MYSERVER:/root/ansible-bootstrap/
+        scp ~/.ssh/ansible.pub root@$MYSERVER:/root/
 
 - Controllee: Download and run `RUNME.sh`
   
