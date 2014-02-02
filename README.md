@@ -24,3 +24,17 @@ This assumes you are setting up a Ubuntu 13.10 x64 to be managed by ansible.
   
         wget https://raw2.github.com/jdeveloperw/ansible-bootstrap/master/RUNME.sh
         ./RUNME.sh
+
+  NOTE: This will disable password-based on authentication on the controllee,
+  requiring you to login to the controllee as `ansible@$MYSERVER` using the `~/.ssh/ansible` private key.
+  If you want to re-enable password-based authentication, edit `/etc/ssh/sshd_config`, replacing
+
+        PasswordAuthentication no
+
+  with
+
+        PasswordAuthentication yes
+
+- Controller: ssh to the controlle as ansible
+
+       ssh ansible@$MYSERVER -i ~/.ssh/ansible
