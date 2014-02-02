@@ -13,12 +13,13 @@ This assumes you are setting up a Ubuntu 13.10 x64 to be managed by ansible.
 
 - As root, clone the ansible-bootstrap repo on the server that will be managed by ansible (controllee)
 
+        sudo apt-get install git
         cd
-        git clone git@github.com:jdeveloperw/ansible-bootstrap.git
+        git clone https://github.com/jdeveloperw/ansible-bootstrap.git
 
 - On the controller, copy the ansible public key from the controller to the controllee's ansible-bootstrap repo
 
-        scp ~/.ssh/ansible.pub $MYSERVER:/root/ansible-bootstrap/
+        scp ~/.ssh/ansible.pub root@$MYSERVER:/root/ansible-bootstrap/
 
 - On the controllee, run the bootstrap script
 
