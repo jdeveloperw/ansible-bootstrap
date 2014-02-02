@@ -3,6 +3,22 @@ ansible-bootstrap
 
 Minimal scripts and files needed to allow ansible to manage a server.
 
+## Files
+
+<pre>
+ansible-bootstrap/
+├── README.md
+    This file
+├── RUNME.sh
+    Standalone script that can be downloaded and run to configure a server to be managed by ansible
+├── ansible-bootstrap.sh
+    Does most of the work of setting up the server to be managed by ansible.
+├── sshd_config
+    Copied to /etc/ssh/sshd_config by ansible-bootstrap.sh
+└── sudoers-ansible
+    Copied to /etc/sudoers.d/ansible/ by ansible-bootstrap.sh
+</pre>
+
 ## Setting up a server to be managed by ansible
 
 ### Definitions
