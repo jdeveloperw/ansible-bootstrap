@@ -1,7 +1,5 @@
 #!/bin/sh
 
-sudo -i
-
 if [[ `cat /proc/version | grep -i 'red hat'` ]]; then
   DISTRIBUTION='RHEL'
 else
