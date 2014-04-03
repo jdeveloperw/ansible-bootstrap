@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo -i
+
 if [[ `cat /proc/version | grep -i 'red hat'` ]]; then
   DISTRIBUTION='RHEL'
 else
@@ -12,14 +14,14 @@ else
   SSHD_SERVICE="ssh"
 fi
 
-sudo useradd ansible
-sudo mkdir -p /etc/sudoers.d
-sudo cp sudoers-ansible /etc/sudoers.d/ansible
-sudo cp sshd_config /etc/ssh/sshd_config
-sudo service $SSHD_SERVICE restart
-sudo mkdir -p /home/ansible
-sudo chown ansible /home/ansible
-sudo chgrp ansible /home/ansible
+useradd ansible
+mkdir -p /etc/sudoers.d
+cp sudoers-ansible /etc/sudoers.d/ansible
+cp sshd_config /etc/ssh/sshd_config
+service $SSHD_SERVICE restart
+mkdir -p /home/ansible
+chown ansible /home/ansible
+chgrp ansible /home/ansible
 
 sudo -u ansible -H mkdir -p /home/ansible/.ssh
 sudo -u ansible -H chmod 700 /home/ansible/.ssh
