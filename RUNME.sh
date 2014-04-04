@@ -28,7 +28,7 @@ else
   SSHD_SERVICE="ssh"
 fi
 
-# Make sure when are in root's home directory
+# Make sure we are in root's home directory
 cd /root
 
 # Create the ansible user
