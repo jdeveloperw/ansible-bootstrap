@@ -1,16 +1,17 @@
 #!/bin/sh
 
-SUDOERS_ANSIBLE_CONTENT='
+SUDOERS_ANSIBLE_CONTENT="
 # Allow ansible user sudo access without a password prompt\n
-ansible ALL=(ALL)       NOPASSWD:ALL'
+ansible ALL=(ALL)       NOPASSWD:ALL\n
+"
 
-SSHD_CONFIG_EXTRA_CONTENT='
+SSHD_CONFIG_EXTRA_CONTENT="
 # Enable Public Key Authentication\n
 PubkeyAuthentication yes\n
 \n
 # Disable password Authentication\n
 PasswordAuthentication no\n
-'
+"
 
 SSHD_CONFIG_FILE='/etc/ssh/sshd_config'
 
