@@ -54,5 +54,5 @@ chgrp ansible /home/ansible
 # Add ansible.pub to the ansible user's authorized keys
 sudo -u ansible -H mkdir -p /home/ansible/.ssh
 sudo -u ansible -H chmod 700 /home/ansible/.ssh
-sudo -u ansible -H cp ansible.pub /home/ansible/.ssh/authorized_keys
+sudo -u ansible -H cp /root/ansible.pub /home/ansible/.ssh/authorized_keys
 sudo -u ansible -H chmod 644 /home/ansible/.ssh/authorized_keys
