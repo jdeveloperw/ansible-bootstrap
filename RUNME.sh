@@ -52,7 +52,8 @@ chown ansible /home/ansible
 chgrp ansible /home/ansible
 
 # Add ansible.pub to the ansible user's authorized keys
+cp /root/ansible.pub /tmp
 sudo -u ansible -H mkdir -p /home/ansible/.ssh
 sudo -u ansible -H chmod 700 /home/ansible/.ssh
-sudo -u ansible -H cp /root/ansible.pub /home/ansible/.ssh/authorized_keys
+sudo -u ansible -H cp /tmp/ansible.pub /home/ansible/.ssh/authorized_keys
 sudo -u ansible -H chmod 644 /home/ansible/.ssh/authorized_keys
