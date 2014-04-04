@@ -36,7 +36,7 @@ This assumes you are setting up a Ubuntu 13.10 x64 to be managed by ansible.
         ssh-keygen -f ~/.ssh/ansible
         scp ~/.ssh/ansible.pub root@$MYSERVER:/root/
 
-- Controllee: Download and run `RUNME.sh`
+- Controllee: As root, download and run `RUNME.sh`
   
         wget https://raw2.github.com/jdeveloperw/ansible-bootstrap/master/RUNME.sh
         sh RUNME.sh
