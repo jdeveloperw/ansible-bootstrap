@@ -43,7 +43,7 @@ sed -i "s/.*PasswordAuthentication.*//g" $SSHD_CONFIG_FILE
 # Remove any existing references to PubkeyAuthentication
 sed -i "s/.*PubkeyAuthentication.*//g" $SSHD_CONFIG_FILE
 # Write the configuration we want to the sshd config file
-echo $SSHD_CONFIG_CONTENT >> $SSHD_CONFIG_FILE
+echo $SSHD_CONFIG_EXTRA_CONTENT >> $SSHD_CONFIG_FILE
 service $SSHD_SERVICE restart
 
 # Create home directory for the ansible user
