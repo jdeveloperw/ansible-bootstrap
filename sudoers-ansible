@@ -1,2 +1,0 @@
-# Allow ansible user sudo access without a password prompt
-ansible ALL=(ALL)       NOPASSWD:ALL
