@@ -38,6 +38,7 @@ useradd ansible --home $ANSIBLE_HOME
 # Give ansible user permissions to run as root without a password prompt
 mkdir -p /etc/sudoers.d
 echo -e "$SUDOERS_ANSIBLE_CONTENT" > /etc/sudoers.d/ansible
+chmod 440 /etc/sudoers.d/ansible
 
 # Enable public key authentication and disable password authentication
 # Remove any existing references to PasswordAuthentication
