@@ -14,6 +14,7 @@ PasswordAuthentication no
 "
 
 SSHD_CONFIG_FILE='/etc/ssh/sshd_config'
+ANSIBLE_HOME='/ansible'
 
 
 if [[ `cat /proc/version | grep -i 'red hat'` ]]; then
@@ -32,7 +33,7 @@ fi
 cd /root
 
 # Create the ansible user
-useradd ansible
+useradd ansible --home $ANSIBLE_HOME
 
 # Give ansible user permissions to run as root without a password prompt
 mkdir -p /etc/sudoers.d
@@ -48,13 +49,13 @@ echo -e "$SSHD_CONFIG_EXTRA_CONTENT" >> $SSHD_CONFIG_FILE
 service $SSHD_SERVICE restart
 
 # Create home directory for the ansible user
-mkdir -p /home/ansible
-chown ansible /home/ansible
-chgrp ansible /home/ansible
+mkdir -p $ANSIBLE_HOME
+chown ansible $ANSIBLE_HOME
+chgrp ansible $ANSIBLE_HOME
 
 # Add ansible.pub to the ansible user's authorized keys
 cp /root/ansible.pub /tmp
-sudo -u ansible -H mkdir -p /home/ansible/.ssh
-sudo -u ansible -H chmod 700 /home/ansible/.ssh
-sudo -u ansible -H cp /tmp/ansible.pub /home/ansible/.ssh/authorized_keys
-sudo -u ansible -H chmod 644 /home/ansible/.ssh/authorized_keys
+sudo -u ansible -H mkdir -p $ANSIBLE_HOME/.ssh
+sudo -u ansible -H chmod 700 $ANSIBLE_HOME/.ssh
+sudo -u ansible -H cp /tmp/ansible.pub $ANSIBLE_HOME/.ssh/authorized_keys
+sudo -u ansible -H chmod 644 $ANSIBLE_HOME/.ssh/authorized_keys
