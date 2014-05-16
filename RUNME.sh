@@ -33,7 +33,7 @@ fi
 cd /root
 
 # Create the ansible user
-useradd ansible --home $ANSIBLE_HOME
+useradd ansible --home=$ANSIBLE_HOME
 
 # Give ansible user permissions to run as root without a password prompt
 mkdir -p /etc/sudoers.d
