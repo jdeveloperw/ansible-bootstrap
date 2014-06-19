@@ -15,6 +15,7 @@ PasswordAuthentication no
 
 SSHD_CONFIG_FILE='/etc/ssh/sshd_config'
 ANSIBLE_HOME='/ansible'
+INCLUDE_SUDOERSD='#includedir /etc/sudoers.d/'
 
 
 if [[ `cat /proc/version | grep -i 'red hat'` ]]; then
@@ -39,6 +40,14 @@ useradd ansible --home=$ANSIBLE_HOME
 mkdir -p /etc/sudoers.d
 echo -e "$SUDOERS_ANSIBLE_CONTENT" > /etc/sudoers.d/ansible
 chmod 440 /etc/sudoers.d/ansible
+
+# Make sure the /etc/sudoers.d directory is included in the /etc/sudoers file
+if [[ -z `grep $INCLUDE_SUDOERSD /etc/sudoers` ]] ; then
+  chmod +w /etc/sudoers
+  echo $INCLUDE_SUDOERSD >> /etc/sudoers
+  chmod -w /etc/sudoers
+fi
+
 
 # Enable public key authentication and disable password authentication
 # Remove any existing references to PasswordAuthentication
